@@ -21,6 +21,8 @@
 
     <div>
         <span>작성</span>
-        <button>작성</button>
+        <div>
+            <input type="submit" value="작성" />
+        </div>
     </div>
 </form>

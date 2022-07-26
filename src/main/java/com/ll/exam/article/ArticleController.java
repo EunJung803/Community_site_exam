@@ -7,13 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ArticleController {
+    private ArticleService articleService;
+
+    public ArticleController() {
+        articleService = new ArticleService();
+    }
+
     public void showList(Rq rq) {
-        List<ArticleDto> articleDtos = new ArrayList<>();   // Dto == 단순 데이터 담는 역할
-        articleDtos.add(new ArticleDto(5, "제목 5", "내용 5"));
-        articleDtos.add(new ArticleDto(4, "제목 4", "내용 4"));
-        articleDtos.add(new ArticleDto(3, "제목 3", "내용 3"));
-        articleDtos.add(new ArticleDto(2, "제목 2", "내용 2"));
-        articleDtos.add(new ArticleDto(1, "제목 1", "내용 1"));
+        List<ArticleDto> articleDtos = articleService.findAll();   // Dto == 단순 데이터 담는 역할
 
         rq.setAttr("articles", articleDtos);
 
@@ -28,7 +29,10 @@ public class ArticleController {
         String title = rq.getParam("title", "");
         String body = rq.getParam("body", "");
 
-        rq.appendBody("<div>title : %s</div>".formatted(title));
-        rq.appendBody("<div>body : %s</div>".formatted(body));
+//        rq.appendBody("<div>title : %s</div>".formatted(title));
+//        rq.appendBody("<div>body : %s</div>".formatted(body));
+
+        long id = articleService.write(title, body);
+        rq.appendBody("%d번 게시물이 생성 되었습니다.".formatted(id));
     }
 }

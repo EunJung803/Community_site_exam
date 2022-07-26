@@ -18,4 +18,8 @@ public class ArticleService {
     public List<ArticleDto> findAll() {
         return articleRepository.findAll();     // 리포지터리에게 넘기기
     }
+
+    public ArticleDto findById(long id) {
+        return articleRepository.findById(id);
+    }
 }

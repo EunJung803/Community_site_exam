@@ -48,4 +48,12 @@ public class ArticleRepository {
 
         return null;
     }
+
+    public void delete(long id) {
+        ArticleDto articleDto = findById(id);   // id를 찾고
+
+        if (articleDto == null) return;     // id가 존재하지 않으면 return
+
+        datum.remove(articleDto);   // 삭제 진행
+    }
 }

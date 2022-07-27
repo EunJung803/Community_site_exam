@@ -6,8 +6,7 @@
     List<ArticleDto> articles = (List<ArticleDto>)request.getAttribute("articles");  // 형 변환 해주기
 %>
 
-<!-- 테일윈드 도입 -->
-<script src="https://cdn.tailwindcss.com"></script>
+<%@ include file="../common/head.jspf"%>
 
 <!-- 보통 구획은 이렇게 섹션으로 나눈다. -->
 <section>
@@ -32,3 +31,5 @@
         </ul>
     </div>
 </section>
+
+<%@ include file="../common/foot.jspf"%>

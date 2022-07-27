@@ -1,11 +1,8 @@
 package com.ll.exam.article.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
-@ToString
+@Data
 @AllArgsConstructor
 public class ArticleDto {
     @Getter

@@ -1,6 +1,5 @@
 package com.ll.exam;
 
-import com.ll.exam.article.dto.ArticleDto;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -8,7 +7,6 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.util.List;
 
 public class Rq {
     private final HttpServletRequest req;
@@ -87,5 +85,31 @@ public class Rq {
 
     public String getMethod() {
         return req.getMethod();
+    }
+
+    public long getLongPathValueByIndex(int index, long defaultValue) {
+        String value = getPathValueByIndex(index, null);
+
+        if ( value == null ) {
+            return defaultValue;
+        }
+
+        try {
+            return Long.parseLong(value);
+        }
+        catch ( NumberFormatException e ) {
+            return defaultValue;
+        }
+    }
+
+    public String getPathValueByIndex(int index, String defaultValue) {
+        String[] bits = req.getRequestURI().split("/");
+
+        try {
+            return bits[4+index];
+        }
+        catch (ArrayIndexOutOfBoundsException e) {
+            return defaultValue;
+        }
     }
 }

@@ -6,7 +6,7 @@
     List<ArticleDto> articles = (List<ArticleDto>)request.getAttribute("articles");  // 형 변환 해주기
 %>
 
-<%@ include file="../common/head.jspf"%>
+<%@ include file="../common/head.jspf"%>    <!-- 헤더 설정-->
 
 <!-- 보통 구획은 이렇게 섹션으로 나눈다. -->
 <section>
@@ -32,4 +32,4 @@
     </div>
 </section>
 
-<%@ include file="../common/foot.jspf"%>
+<%@ include file="../common/foot.jspf"%>    <!-- 푸터 설정 -->

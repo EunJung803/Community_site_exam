@@ -1,0 +1,11 @@
+<h1>메인 페이지</h1>
+<script>
+    // 뒤로가기를 통해서 다시 현재 페이지로 돌아오는게 가능
+    // location.href = '/usr/article/list/free';
+
+    // 뒤로가기를 통해서 다시 현재 페이지로 돌아오는게 불가능
+    // location.replace로 이동하게 되면 히스토리를 삭제하기 때문에 뒤로가기를 통해 돌아올 수 없다.
+    location.replace('/usr/article/list/free');
+    // 따라서 이를 이용하여 http://localhost:8081/ 로 이동하면
+    //      -> 자동으로 replace에 들어있는 uri가 붙어서 url이 완성됨 (거기로 이동된다!)
+</script>

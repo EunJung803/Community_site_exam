@@ -135,6 +135,7 @@ public class Rq {
         // 자동으로 replace로 이동
     }
 
+    // 필수정보가 누락되는 등, 해당 기능을 수행할 자격이 없는 요청의 경우 경고창을 띄운 후 history.back 처리 (자동으로 뒤로가기)
     public void historyBack(String msg) {
         if (msg != null && msg.trim().length() > 0) {
             println("""

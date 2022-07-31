@@ -116,4 +116,22 @@ public class Rq {
             return defaultValue;
         }
     }
+
+    public void replace(String uri, String msg) {
+        if (msg != null && msg.trim().length() > 0) {
+            // 브라우저에 전달할 메세지 -> 브라우저는 그 메세지를 단순히 보여줄 뿐 !
+            println("""
+                    <script>
+                    alert("%s");
+                    </script>
+                    """.formatted(msg));
+        }
+
+        println("""
+                <script>
+                location.replace("%s");
+                </script>
+                """.formatted(uri));
+        // 자동으로 replace로 이동
+    }
 }

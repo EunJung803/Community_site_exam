@@ -134,4 +134,20 @@ public class Rq {
                 """.formatted(uri));
         // 자동으로 replace로 이동
     }
+
+    public void historyBack(String msg) {
+        if (msg != null && msg.trim().length() > 0) {
+            println("""
+                    <script>
+                    alert("%s");
+                    </script>
+                    """.formatted(msg));
+        }
+
+        println("""
+                <script>
+                location.historyBack("%s");
+                </script>
+                """);
+    }
 }
